@@ -7,13 +7,13 @@ resource "aws_elasticsearch_domain" "this" {
   # advanced_options = var.advanced_options
 
   advanced_security_options {
-    enabled = var.advanced_security_options
+    enabled                        = var.advanced_security_options
     internal_user_database_enabled = var.internal_user_database_enabled
     master_user_options {
-    master_user_arn      = var.master_user_arn
-    master_user_name     = var.master_user_name
-    master_user_password = var.master_user_password
-  }
+      master_user_arn      = var.master_user_arn
+      master_user_name     = var.master_user_name
+      master_user_password = var.master_user_password
+    }
   }
 
   cluster_config {
@@ -31,7 +31,7 @@ resource "aws_elasticsearch_domain" "this" {
   }
 
   cognito_options {
-    enabled          = var.cognito_options
+    enabled = var.cognito_options
     #storage_uri = var.boot_diagnostics == true ? azurerm_storage_account.vm-sa[0].primary_blob_endpoint : ""
     identity_pool_id = var.cognito_options == true ? var.identity_pool_id : ""
     role_arn         = var.role_arn
@@ -76,7 +76,7 @@ resource "aws_elasticsearch_domain" "this" {
   tags = merge(var.tags, map("Name", var.name))
 
   #  vpc_options {
-    #    security_group_ids = var.security_group_ids
-    #    subnet_ids         = var.subnet_ids
-    #  }
+  #    security_group_ids = var.security_group_ids
+  #    subnet_ids         = var.subnet_ids
+  #  }
 }
