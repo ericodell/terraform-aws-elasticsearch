@@ -75,8 +75,8 @@ resource "aws_elasticsearch_domain" "this" {
 
   tags = merge(var.tags, map("Name", var.name))
 
-  #  vpc_options {
-  #    security_group_ids = var.security_group_ids
-  #    subnet_ids         = var.subnet_ids
-  #  }
+    vpc_options {
+      security_group_ids = var.security_group_ids
+      subnet_ids         = var.subnet_ids
+    }
 }

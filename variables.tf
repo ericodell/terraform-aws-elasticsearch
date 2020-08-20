@@ -34,7 +34,7 @@ variable "automated_snapshot_start_hour" {
 
 variable "availability_zone_count" {
   default     = "2"
-  description = "es zone awareness, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#availability_zone_count"
+  description = "es availability zone count, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#availability_zone_count"
   type        = string
 }
 
