@@ -117,13 +117,13 @@ variable "instance_type" {
 
 variable "internal_user_database_enabled" {
   default     = false
-  description = "es encrypt at rest, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#internal_user_database_enabled"
+  description = "es internal db users, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#internal_user_database_enabled"
   type        = bool
 }
 
 variable "log_type" {
   default     = "INDEX_SLOW_LOGS"
-  description = "es domain name, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_type"
+  description = "es log type, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_type"
   type        = string
 }
 
