@@ -1,3 +1,7 @@
+output "arn" {
+  value = join("", aws_elasticsearch_domain.this.*.arn)
+}
+
 output "domain_id" {
   value = join("", aws_elasticsearch_domain.this.*.domain_id)
 }

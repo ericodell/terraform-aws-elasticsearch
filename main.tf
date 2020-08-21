@@ -32,7 +32,7 @@ resource "aws_elasticsearch_domain" "this" {
   }
 
   cognito_options {
-    enabled = var.cognito_options
+    enabled          = var.cognito_options
     identity_pool_id = var.cognito_options == true ? var.identity_pool_id : ""
     role_arn         = var.role_arn
     user_pool_id     = var.user_pool_id
@@ -75,8 +75,8 @@ resource "aws_elasticsearch_domain" "this" {
 
   tags = merge(var.tags, map("Name", var.name))
 
-    vpc_options {
-      security_group_ids = var.security_group_ids
-      subnet_ids         = var.subnet_ids
-    }
+  vpc_options {
+    security_group_ids = var.security_group_ids
+    subnet_ids         = var.subnet_ids
+  }
 }
