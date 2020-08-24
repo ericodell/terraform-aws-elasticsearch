@@ -206,7 +206,7 @@ variable "volume_type" {
 }
 
 variable "warm_count" {
-  default     = "2"
+  default     = null
   description = "es enable warm storage, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#warm_count"
   type        = string
 }
@@ -218,7 +218,7 @@ variable "warm_enabled" {
 }
 
 variable "warm_type" {
-  default     = "ultrawarm1.medium.elasticsearch"
+  default     = null
   description = "es enable warm storage, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#warm_type"
   type        = string
 }

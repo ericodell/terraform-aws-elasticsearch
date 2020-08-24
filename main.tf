@@ -1,6 +1,11 @@
+data "aws_caller_identity" "this" {}
+
+data "aws_region" "this" {}
+
 locals {
   enabled = var.enabled == "true"
 }
+
 resource "aws_elasticsearch_domain" "this" {
   count = local.enabled ? 1 : 0
 
@@ -79,4 +84,25 @@ resource "aws_elasticsearch_domain" "this" {
     security_group_ids = var.security_group_ids
     subnet_ids         = var.subnet_ids
   }
+}
+
+resource "aws_elasticsearch_domain_policy" "this" {
+  count = local.enabled ? 1 : 0
+
+  access_policies = <<POLICIES
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "es:*",
+            "Effect": "Allow",
+            "Resource": "arn:aws:es:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:domain/${var.domain_name}/*",
+            "Principal": "*"
+        }
+    ]
+}
+POLICIES
+# "Principal": "arn:aws:es:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:domain/${var.domain_name}/*",
+            # "Resource": "${aws_elasticsearch_domain.this.*.arn}/*"
+  domain_name = var.domain_name
 }
