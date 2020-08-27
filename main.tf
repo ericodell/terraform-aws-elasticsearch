@@ -2,6 +2,11 @@ data "aws_caller_identity" "this" {}
 
 data "aws_region" "this" {}
 
+resource "aws_iam_service_linked_role" "this" {
+  count            = var.service_role_enabled ? 1 : 0
+  aws_service_name = "es.amazonaws.com"
+}
+
 resource "aws_elasticsearch_domain" "this" {
   count = var.enabled ? 1 : 0
 
