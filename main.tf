@@ -2,12 +2,8 @@ data "aws_caller_identity" "this" {}
 
 data "aws_region" "this" {}
 
-locals {
-  enabled = var.enabled == "true"
-}
-
 resource "aws_elasticsearch_domain" "this" {
-  count = local.enabled ? 1 : 0
+  count = var.enabled ? 1 : 0
 
   # fix this!
   # advanced_options = var.advanced_options
@@ -87,7 +83,7 @@ resource "aws_elasticsearch_domain" "this" {
 }
 
 resource "aws_elasticsearch_domain_policy" "this" {
-  count = local.enabled ? 1 : 0
+  count = var.enabled ? 1 : 0
 
   access_policies = <<POLICIES
 {
@@ -102,7 +98,7 @@ resource "aws_elasticsearch_domain_policy" "this" {
     ]
 }
 POLICIES
-# "Principal": "arn:aws:es:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:domain/${var.domain_name}/*",
-            # "Resource": "${aws_elasticsearch_domain.this.*.arn}/*"
+  # "Principal": "arn:aws:es:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:domain/${var.domain_name}/*",
+  # "Resource": "${aws_elasticsearch_domain.this.*.arn}/*"
   domain_name = var.domain_name
 }
