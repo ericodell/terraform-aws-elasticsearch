@@ -176,6 +176,12 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
+variable "service_role_enabled" {
+  default     = true
+  description = "es service role enabled"
+  type        = bool
+}
+
 variable "subnet_ids" {
   default     = []
   description = "es vpc option list of subnet ids, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#subnet_ids"
