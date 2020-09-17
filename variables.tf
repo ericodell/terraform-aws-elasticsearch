@@ -134,10 +134,40 @@ variable "kms_key_id" {
   type        = string
 }
 
-variable "log_publishing_options" {
+variable "log_publishing_options_es_application_logs" {
   default     = false
   description = "es log pub options, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
   type        = bool
+}
+
+variable "log_publishing_options_es_application_logs_cloudwatch_logs_group_arn" {
+  default     = ""
+  description = "es log pub options, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
+  type        = string
+}
+
+variable "log_publishing_options_index_slow_logs" {
+  default     = false
+  description = "es log pub options, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
+  type        = bool
+}
+
+variable "log_publishing_options_index_slow_logs_cloudwatch_logs_group_arn" {
+  default     = ""
+  description = "es log pub options, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
+  type        = string
+}
+
+variable "log_publishing_options_search_slow_logs" {
+  default     = false
+  description = "es log pub options, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
+  type        = bool
+}
+
+variable "log_publishing_options_search_slow_logs_logs_group_arn" {
+  default     = ""
+  description = "es log pub options, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_publishing_options"
+  type        = string
 }
 
 variable "master_user_arn" {
