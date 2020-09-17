@@ -58,7 +58,7 @@ variable "dedicated_master_enabled" {
 }
 
 variable "dedicated_master_type" {
-  default     = "m4.large.elasticsearch"
+  default     = "m5.large.elasticsearch"
   description = "es dedicated master, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#dedicated_master_type"
   type        = string
 }
@@ -111,7 +111,7 @@ variable "instance_count" {
 }
 
 variable "instance_type" {
-  default     = "m4.large.elasticsearch"
+  default     = "m5.large.elasticsearch"
   description = "es cluster config instance type, cf https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#instance_type"
   type        = string
 }
