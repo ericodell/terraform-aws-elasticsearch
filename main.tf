@@ -66,9 +66,21 @@ resource "aws_elasticsearch_domain" "this" {
   }
 
   log_publishing_options {
-    cloudwatch_log_group_arn = var.cloudwatch_log_group_arn
-    enabled                  = var.log_publishing_options
-    log_type                 = var.log_type
+    enabled                  = var.log_publishing_options_es_application_logs
+    log_type                 = "ES_APPLICATION_LOGS"
+    cloudwatch_log_group_arn = var.log_publishing_options_es_application_logs_cloudwatch_logs_group_arn
+  }
+
+  log_publishing_options {
+    enabled                  = var.log_publishing_options_index_slow_logs
+    log_type                 = "INDEX_SLOW_LOGS"
+    cloudwatch_log_group_arn = var.log_publishing_options_index_slow_logs_cloudwatch_logs_group_arn
+  }
+
+  log_publishing_options {
+    enabled                  = var.log_publishing_options_search_slow_logs
+    log_type                 = "SEARCH_SLOW_LOGS"
+    cloudwatch_log_group_arn = var.log_publishing_options_search_slow_logs_logs_group_arn
   }
 
   node_to_node_encryption {
