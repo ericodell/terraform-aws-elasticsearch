@@ -1,3 +1,10 @@
+/**
+ * # terraform aws elasticsearch module
+ *
+ * this module creates AWS elasticsearch domains
+ *
+ */
+
 data "aws_caller_identity" "this" {}
 
 data "aws_region" "this" {}
