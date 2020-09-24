@@ -3,6 +3,8 @@
  *
  * this module creates AWS elasticsearch domains
  *
+ * proudly built in Oakland, California by [UCOP ACME Org](https://github.com/ucopacme), patent pending
+ *
  */
 
 data "aws_caller_identity" "this" {}
