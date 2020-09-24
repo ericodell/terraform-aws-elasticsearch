@@ -2,6 +2,8 @@
 
 this module creates AWS elasticsearch domains
 
+proudly built in Oakland, California by [UCOP ACME Org](https://github.com/ucopacme), patent pending
+
 ## Requirements
 
 No requirements.
@@ -66,8 +68,8 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| arn | n/a |
-| domain\_id | n/a |
-| domain\_name | n/a |
-| endpoint | n/a |
-| kibana\_endpoint | n/a |
+| arn | elastic search domain arn |
+| domain\_id | elastic search domain id |
+| domain\_name | elastic search domain name |
+| endpoint | elastic search domain endpoint |
+| kibana\_endpoint | elastic search domain kibana plugin endpoint |
