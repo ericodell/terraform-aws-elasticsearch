@@ -87,7 +87,7 @@ variable "iops" {
 }
 
 variable "elasticsearch_version" {
-  default     = "7.4"
+  default     = "7.7"
   description = "[es domain name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#elasticsearch_version)"
   type        = string
 }
@@ -225,19 +225,19 @@ variable "tls_security_policy" {
 }
 
 variable "user_pool_id" {
-  default     = "]"
+  default     = ""
   description = "[es cognito option user pool id](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#user_pool_id)"
   type        = string
 }
 
 variable "volume_size" {
-  default     = "100]"
+  default     = "100"
   description = "[es ebs options volume size](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#volume_size)"
   type        = string
 }
 
 variable "volume_type" {
-  default     = "gp2]"
+  default     = "gp2"
   description = "[es ebs options volume type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#volume_type)"
   type        = string
 }
